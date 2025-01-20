@@ -10,15 +10,16 @@ import platform
 def _load_lib():
     """Load library in local."""
     cur_path = os.path.dirname(os.path.abspath(os.path.expanduser(__file__)))
-    lib_path = cur_path
-    if platform.system() == "Darwin":
-        path_to_so_file = os.path.join(lib_path, "libmagent.dylib")
-    elif platform.system() == "Linux":
-        path_to_so_file = os.path.join(lib_path, "libmagent.so")
-    elif platform.system() == "Windows":
-        path_to_so_file = os.path.join(lib_path, "magent.dll")
-    else:
-        raise BaseException("unsupported system: " + platform.system())
+    # lib_path = cur_path
+    path_to_so_file = '/Users/tobiasmerkt/PycharmProjects/MA2_RLWars/build/libmagent.dylib'
+    # if platform.system() == "Darwin":
+    #     path_to_so_file = os.path.join(lib_path, "libmagent.dylib")
+    # elif platform.system() == "Linux":
+    #     path_to_so_file = os.path.join(lib_path, "libmagent.so")
+    # elif platform.system() == "Windows":
+    #     path_to_so_file = os.path.join(lib_path, "magent.dll")
+    # else:
+    #     raise BaseException("unsupported system: " + platform.system())
     lib = ctypes.CDLL(path_to_so_file, ctypes.RTLD_GLOBAL)
     return lib
 
